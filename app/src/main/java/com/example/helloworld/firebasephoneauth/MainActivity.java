@@ -21,25 +21,17 @@ public class MainActivity extends AppCompatActivity {
     Button send_otp_btn;
     ProgressBar pb_bar;
     String phoneNumber;
-    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = null;
-    private String mVerificationId;
-    private PhoneAuthProvider.ForceResendingToken mToken;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         et_phone = findViewById(R.id.et_phone);
         send_otp_btn = findViewById(R.id.send_otp_btn);
         pb_bar = findViewById(R.id.pb_bar);
 
         pb_bar.setVisibility(View.GONE);
-
-
 
         send_otp_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken token) {
 
             pb_bar.setVisibility(View.GONE);
-            mVerificationId = verificationId;
+            String mVerificationId = verificationId;
             Log.e("MainActivity" , "Verification id : " + verificationId);
             Intent intent = new Intent(MainActivity.this , OtpActivity.class);
             intent.putExtra("verificationId" , mVerificationId);

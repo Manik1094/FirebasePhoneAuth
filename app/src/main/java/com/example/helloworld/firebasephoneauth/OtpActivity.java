@@ -27,7 +27,6 @@ public class OtpActivity extends AppCompatActivity {
     Button verify_btn;
     String otp;
     ProgressBar pb_bar;
-
     FirebaseAuth mAuth;
 
 
@@ -47,10 +46,6 @@ public class OtpActivity extends AppCompatActivity {
         intent = getIntent();
         verificationId = intent.getStringExtra("verificationId");
 
-        Log.e("OtpActivity" , "Verification id : " + verificationId);
-        Log.e("OtpActivity" , "Otp : " + otp);
-
-
         verify_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,9 +62,6 @@ public class OtpActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
     private void verifyOtp(String verificationId, String otp) {
